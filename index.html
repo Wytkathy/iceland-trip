@@ -392,6 +392,59 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .trip-summary-card{background:var(--gradient-aurora);color:#fff;border-radius:var(--radius);padding:20px}
 .trip-summary-text{font-size:13px;line-height:1.8;white-space:pre-wrap}
 
+/* ===== CHEMISTRY TEST ===== */
+#page-chemistry .page-inner{padding:24px}
+.chem-hero{background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);color:#fff;border-radius:var(--radius);padding:24px;margin-bottom:20px;text-align:center}
+.chem-hero h2{font-size:22px;font-weight:700;margin-bottom:6px}
+.chem-hero p{font-size:13px;opacity:.85}
+.chem-score-ring{width:120px;height:120px;border-radius:50%;background:conic-gradient(#fff var(--pct,0%),rgba(255,255,255,.2) 0%);margin:16px auto;display:flex;align-items:center;justify-content:center;position:relative}
+.chem-score-ring::before{content:'';position:absolute;inset:10px;border-radius:50%;background:linear-gradient(135deg,#f093fb,#f5576c)}
+.chem-score-val{position:relative;font-size:28px;font-weight:700;color:#fff}
+.chem-sections{display:flex;flex-direction:column;gap:16px}
+.chem-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.chem-section-hdr{padding:14px 18px;background:var(--card2);border-bottom:1px solid var(--border);font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
+.chem-section-body{padding:18px}
+/* Spot rating */
+.spot-rating-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.spot-rating-card{background:var(--card2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px}
+.spot-name{font-size:13px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.spot-ratings-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.person-rating{text-align:center}
+.person-label{font-size:10px;font-weight:600;margin-bottom:6px;display:block}
+.star-row{display:flex;gap:3px;justify-content:center}
+.star{font-size:18px;cursor:pointer;transition:transform .1s;line-height:1;opacity:.3}
+.star.lit{opacity:1}
+.star:hover{transform:scale(1.2)}
+.spot-match{margin-top:8px;font-size:11px;text-align:center;padding:4px;border-radius:6px;font-weight:600}
+.spot-match.match{background:#D1FAE5;color:#059669}
+.spot-match.close{background:#FEF3C7;color:#D97706}
+.spot-match.diff{background:#FEE2E2;color:#DC2626}
+/* Food quiz */
+.food-quiz-grid{display:flex;flex-direction:column;gap:14px}
+.food-question{background:var(--card2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px}
+.food-q-text{font-size:13px;font-weight:600;margin-bottom:10px}
+.food-q-options{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.food-person-col{display:flex;flex-direction:column;gap:6px}
+.food-person-lbl{font-size:10px;font-weight:600;margin-bottom:2px;display:block}
+.food-opt{padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--card);font-size:12px;cursor:pointer;transition:var(--transition);text-align:left}
+.food-opt:hover{border-color:var(--primary);color:var(--primary)}
+.food-opt.sel-xinyi{border-color:#ec407a;background:#fce4ec;color:#c2185b}
+.food-opt.sel-yuting{border-color:#4A90E2;background:#e3f2fd;color:#1565c0}
+.food-opt.both-match{border-color:#00b894;background:#d1fae5;color:#059669}
+.food-result{margin-top:8px;font-size:11px;padding:4px 8px;border-radius:6px;font-weight:600;text-align:center}
+.food-result.match{background:#D1FAE5;color:#059669}
+.food-result.no-match{background:#FEE2E2;color:#DC2626}
+/* Result bar */
+.chem-breakdown{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.chem-item{display:flex;align-items:center;gap:10px;font-size:13px}
+.chem-item-label{width:100px;flex-shrink:0;color:var(--text-dim)}
+.chem-item-bar{flex:1;height:8px;border-radius:4px;background:var(--card2);overflow:hidden}
+.chem-item-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#f093fb,#f5576c);transition:width .5s}
+.chem-item-pct{width:36px;text-align:right;font-weight:600;font-size:12px;color:#f5576c;flex-shrink:0}
+/* Heart animation */
+@keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.heart-beat{animation:heartbeat 1s ease-in-out infinite}
+
 /* ===== SETTINGS ===== */
 #page-settings .page-inner{padding:24px;max-width:600px}
 .setting-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border)}
@@ -456,6 +509,9 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
     </div>
     <div class="nav-item" onclick="showPage('weather')">
       <span class="nav-icon">🌤️</span><span>天气&极光</span>
+    </div>
+    <div class="nav-item" onclick="showPage('chemistry')">
+      <span class="nav-icon">💑</span><span>默契测试</span>
     </div>
     <div class="nav-item" onclick="showPage('share')">
       <span class="nav-icon">🎁</span><span>分享中心</span>
@@ -654,6 +710,53 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
     </div>
     <div class="card-title" style="margin-top:8px">📒 每日极光记录</div>
     <div class="aurora-log" id="aurora-log"></div>
+  </div>
+</div>
+
+<!-- CHEMISTRY TEST -->
+<div id="page-chemistry" class="page">
+  <div class="page-header">
+    <div><div class="page-title">💑 闺蜜默契度测试</div><div class="page-subtitle">看看你们的心有灵犀指数！</div></div>
+    <button class="btn btn-primary" onclick="calcChemistry()" style="background:linear-gradient(135deg,#f093fb,#f5576c)">💖 计算默契度</button>
+  </div>
+  <div class="page-inner">
+    <!-- Hero score -->
+    <div class="chem-hero">
+      <h2>💑 Xinyi & Yuting 默契指数</h2>
+      <p>景点评分 + 美食选择 + 综合默契度</p>
+      <div class="chem-score-ring" id="chem-ring" style="--pct:0%">
+        <div class="chem-score-val heart-beat" id="chem-score-val">–</div>
+      </div>
+      <div id="chem-comment" style="font-size:14px;font-weight:600;margin-top:4px">先完成下面的题目再计算！</div>
+    </div>
+
+    <div class="chem-sections">
+      <!-- Part 1: Spot Ratings -->
+      <div class="chem-section">
+        <div class="chem-section-hdr">🏔️ 景点各自打分（1–5星）<span style="font-size:11px;color:var(--text-dim);font-weight:400;margin-left:auto">分差≤1=默契✨</span></div>
+        <div class="chem-section-body">
+          <div class="spot-rating-grid" id="spot-rating-grid"></div>
+        </div>
+      </div>
+
+      <!-- Part 2: Food Quiz -->
+      <div class="chem-section">
+        <div class="chem-section-hdr">🍽️ 美食问答<span style="font-size:11px;color:var(--text-dim);font-weight:400;margin-left:auto">选同一个=心有灵犀💕</span></div>
+        <div class="chem-section-body">
+          <div class="food-quiz-grid" id="food-quiz-grid"></div>
+        </div>
+      </div>
+
+      <!-- Part 3: Score breakdown -->
+      <div class="chem-section">
+        <div class="chem-section-hdr">📊 默契度分析</div>
+        <div class="chem-section-body">
+          <div class="chem-breakdown" id="chem-breakdown">
+            <div style="color:var(--text-dim);font-size:13px">计算后这里显示详细分析 👆</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -876,6 +979,7 @@ function showPage(name) {
   if (name === 'gallery') renderGallery();
   if (name === 'budget') buildExpenseTables();
   if (name === 'weather') loadWeather();
+  if (name === 'chemistry') buildChemistry();
   if (name === 'share') buildShare();
 }
 
@@ -1653,6 +1757,201 @@ function toggleAuroraLog(n, btn) {
   setField(`aurora_${n}`, on?1:null);
   btn.classList.toggle('on',on); btn.textContent=on?'✨ 看到了！':'— 未看到';
   if (on) unlockAch('aurora');
+}
+
+// ===== CHEMISTRY TEST =====
+const SPOTS_TO_RATE = [
+  { id:'sp_hallgrimur',  name:'哈尔格林姆斯教堂', icon:'⛪' },
+  { id:'sp_gullfoss',    name:'黄金瀑布 Gullfoss', icon:'🌊' },
+  { id:'sp_reynisfjara', name:'黑沙滩 Reynisfjara', icon:'🏖️' },
+  { id:'sp_jokulsarlon', name:'冰河湖 Jökulsárlón', icon:'🏔️' },
+  { id:'sp_diamond',     name:'钻石沙滩', icon:'💎' },
+  { id:'sp_kirkjufell',  name:'教会山 Kirkjufell', icon:'📸' },
+  { id:'sp_bluelagoon',  name:'蓝湖温泉 Blue Lagoon', icon:'♨️' },
+  { id:'sp_blueice',     name:'蓝冰洞', icon:'🧊' },
+  { id:'sp_seljaland',   name:'Seljalandsfoss瀑布', icon:'💧' },
+  { id:'sp_geysir',      name:'盖锡尔间歇泉', icon:'💨' },
+];
+
+const FOOD_QUESTIONS = [
+  {
+    id:'fq1', q:'今天最好吃的是什么？',
+    opts:['冰岛热狗 🌭','龙虾浓汤 🦞','烤羊肉 🍖','鱼和薯条 🐟']
+  },
+  {
+    id:'fq2', q:'最想再吃一次的是？',
+    opts:['Skyr 酸奶 🥛','Kleina 炸面团 🍩','巧克力 🍫','冰淇淋 🍦']
+  },
+  {
+    id:'fq3', q:'冰岛食物整体评价？',
+    opts:['太好吃了！超出预期 😍','还不错，有特色 😊','一般般，价格太贵 😅','不太合口味 😬']
+  },
+  {
+    id:'fq4', q:'最想带回家的冰岛食品？',
+    opts:['Skyr 系列 🥛','冰岛巧克力 🍫','盐味甘草糖 🖤','冰岛海盐 🧂']
+  },
+  {
+    id:'fq5', q:'最值得在冰岛喝的饮料？',
+    opts:['直接喝冰岛山泉水 💧','热巧克力 ☕','Appelsín 橙汁汽水 🍊','当地精酿啤酒 🍺']
+  },
+];
+
+function buildChemistry() {
+  buildSpotRatingGrid();
+  buildFoodQuizGrid();
+  updateChemScore();
+}
+
+function buildSpotRatingGrid() {
+  const el = document.getElementById('spot-rating-grid');
+  const d = loadMeta('iceland_chemistry', {});
+  el.innerHTML = SPOTS_TO_RATE.map(sp => {
+    const xv = d[sp.id+'_x'] || 0;
+    const yv = d[sp.id+'_y'] || 0;
+    const diff = Math.abs(xv - yv);
+    let matchHtml = '';
+    if (xv && yv) {
+      if (diff === 0) matchHtml = `<div class="spot-match match">⭐ 完全一致！默契+1</div>`;
+      else if (diff === 1) matchHtml = `<div class="spot-match close">✨ 相差1分，接近</div>`;
+      else matchHtml = `<div class="spot-match diff">💬 差了${diff}分，聊聊？</div>`;
+    }
+    return `<div class="spot-rating-card">
+      <div class="spot-name">${sp.icon} ${sp.name}</div>
+      <div class="spot-ratings-row">
+        <div class="person-rating">
+          <span class="person-label" style="color:#ec407a">Xinyi</span>
+          <div class="star-row">${[1,2,3,4,5].map(s=>`<span class="star ${xv>=s?'lit':''}" onclick="setSpotRating('${sp.id}','x',${s})">⭐</span>`).join('')}</div>
+        </div>
+        <div class="person-rating">
+          <span class="person-label" style="color:#4A90E2">Yuting</span>
+          <div class="star-row">${[1,2,3,4,5].map(s=>`<span class="star ${yv>=s?'lit':''}" onclick="setSpotRating('${sp.id}','y',${s})">⭐</span>`).join('')}</div>
+        </div>
+      </div>
+      ${matchHtml}
+    </div>`;
+  }).join('');
+}
+
+function setSpotRating(spotId, person, val) {
+  const d = loadMeta('iceland_chemistry', {});
+  d[spotId+'_'+person] = val;
+  saveMeta('iceland_chemistry', d);
+  buildSpotRatingGrid();
+  updateChemScore();
+}
+
+function buildFoodQuizGrid() {
+  const el = document.getElementById('food-quiz-grid');
+  const d = loadMeta('iceland_chemistry', {});
+  el.innerHTML = FOOD_QUESTIONS.map(q => {
+    const xSel = d[q.id+'_x'];
+    const ySel = d[q.id+'_y'];
+    const matched = xSel && ySel && xSel === ySel;
+    const resultHtml = (xSel && ySel)
+      ? `<div class="food-result ${matched?'match':'no-match'}">${matched?'💕 心有灵犀！选了一样的':'😂 不一样！聊聊为啥'}</div>`
+      : '';
+    return `<div class="food-question">
+      <div class="food-q-text">❓ ${q.q}</div>
+      <div class="food-q-options">
+        <div class="food-person-col">
+          <span class="food-person-lbl" style="color:#ec407a">Xinyi 选</span>
+          ${q.opts.map(opt => {
+            let cls = 'food-opt';
+            if (xSel === opt && ySel === opt) cls += ' both-match';
+            else if (xSel === opt) cls += ' sel-xinyi';
+            return `<button class="${cls}" onclick="setFoodAns('${q.id}','x','${opt.replace(/'/g,"\\'")}',this)">${opt}</button>`;
+          }).join('')}
+        </div>
+        <div class="food-person-col">
+          <span class="food-person-lbl" style="color:#4A90E2">Yuting 选</span>
+          ${q.opts.map(opt => {
+            let cls = 'food-opt';
+            if (xSel === opt && ySel === opt) cls += ' both-match';
+            else if (ySel === opt) cls += ' sel-yuting';
+            return `<button class="${cls}" onclick="setFoodAns('${q.id}','y','${opt.replace(/'/g,"\\'")}',this)">${opt}</button>`;
+          }).join('')}
+        </div>
+      </div>
+      ${resultHtml}
+    </div>`;
+  }).join('');
+}
+
+function setFoodAns(qid, person, val) {
+  const d = loadMeta('iceland_chemistry', {});
+  d[qid+'_'+person] = val;
+  saveMeta('iceland_chemistry', d);
+  buildFoodQuizGrid();
+  updateChemScore();
+}
+
+function updateChemScore() {
+  const d = loadMeta('iceland_chemistry', {});
+
+  // Spot score: each spot worth up to 10pts (diff=0→10, diff=1→7, diff=2→4, diff=3+→0)
+  let spotTotal = 0, spotMax = 0, spotDone = 0;
+  SPOTS_TO_RATE.forEach(sp => {
+    const xv = d[sp.id+'_x'] || 0, yv = d[sp.id+'_y'] || 0;
+    if (xv && yv) {
+      const diff = Math.abs(xv-yv);
+      const pts = diff===0?10:diff===1?7:diff===2?4:0;
+      spotTotal += pts; spotMax += 10; spotDone++;
+    }
+  });
+
+  // Food score: each match = 20pts
+  let foodTotal = 0, foodMax = 0, foodDone = 0;
+  FOOD_QUESTIONS.forEach(q => {
+    const xv = d[q.id+'_x'], yv = d[q.id+'_y'];
+    if (xv && yv) { foodTotal += xv===yv?20:0; foodMax+=20; foodDone++; }
+  });
+
+  const totalDone = spotDone + foodDone;
+  if (!totalDone) return;
+
+  // Normalize both to 100
+  const spotPct  = spotMax  ? Math.round(spotTotal/spotMax*100)  : null;
+  const foodPct  = foodMax  ? Math.round(foodTotal/foodMax*100)  : null;
+
+  let overall;
+  if (spotPct !== null && foodPct !== null) overall = Math.round(spotPct*0.6 + foodPct*0.4);
+  else if (spotPct !== null) overall = spotPct;
+  else overall = foodPct;
+
+  // Update ring
+  const ring = document.getElementById('chem-ring');
+  const val  = document.getElementById('chem-score-val');
+  const comment = document.getElementById('chem-comment');
+  if (ring && val) {
+    ring.style.setProperty('--pct', overall+'%');
+    val.textContent = overall + '%';
+    let msg;
+    if (overall >= 90) msg = '🎉 天作之合！默契值爆表！';
+    else if (overall >= 75) msg = '💕 心有灵犀，超级默契！';
+    else if (overall >= 60) msg = '😊 相当不错，继续磨合~';
+    else if (overall >= 45) msg = '🤔 有差异但这就是闺蜜的有趣之处！';
+    else msg = '😂 差异有点大，多聊聊吧！';
+    comment.textContent = msg;
+  }
+
+  // Breakdown
+  const bd = document.getElementById('chem-breakdown');
+  if (!bd) return;
+  const rows = [];
+  if (spotPct !== null) rows.push({label:`景点评分 (${spotDone}/${SPOTS_TO_RATE.length})`, pct:spotPct});
+  if (foodPct !== null) rows.push({label:`美食问答 (${foodDone}/${FOOD_QUESTIONS.length})`, pct:foodPct});
+  if (rows.length === 2) rows.push({label:'综合默契度', pct:overall});
+  bd.innerHTML = rows.map(r=>`<div class="chem-item">
+    <span class="chem-item-label">${r.label}</span>
+    <div class="chem-item-bar"><div class="chem-item-fill" style="width:${r.pct}%"></div></div>
+    <span class="chem-item-pct">${r.pct}%</span>
+  </div>`).join('');
+}
+
+function calcChemistry() {
+  updateChemScore();
+  // Scroll to score ring
+  document.querySelector('.chem-hero')?.scrollIntoView({behavior:'smooth'});
 }
 
 // ===== SHARE =====
